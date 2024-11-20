@@ -1,0 +1,416 @@
+/* 웹폰트 링크가져오기 */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap');
+
+
+/* 본문 폰트설정 */
+body{
+    font-family: "IBM Plex Sans KR", sans-serif; 
+    font-size: 16px; 
+    line-height: 1.5; 
+    letter-spacing: -0.02em; 
+    color:#111111;
+}
+
+
+/* 여백제거 */
+body,dl,dd,h1,h2,h3,p,ul,figure{margin: 0; padding: 0;}
+
+/* 스타일제거 */
+ul{list-style: none;}
+address, em{font-style: normal;}
+strong{font-weight: 400;}
+
+/* 인라인요소 수직정렬 */
+img{vertical-align: top;}
+
+
+
+/* 링크스타일제거 */
+
+a{
+ text-decoration: none;
+ color: #111111;
+}
+
+/* =================== 
+헤더레이아웃 
+=====================*/
+
+/* container */
+.container{
+    width: 1240px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.main-header .container{padding-top: 20px;}
+
+/* logo */
+.logo{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo img{
+    vertical-align: top;
+}
+
+/* gnb */
+.gnb-wrap{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0;
+}
+#gnb{
+    display: inline-block;
+}
+#gnb > li{
+    float: left;
+    position: relative;
+    padding-bottom: 16px;
+}
+
+#gnb > li + li {margin-left: 40px;}
+
+#gnb > li::before{
+    display: block;
+    background: blue;
+    content: "";
+    width: 0;
+    height: 3px;
+    position: absolute;
+    left: 0; bottom: 0;
+    z-index: 10;
+    transition-property: width; /*밑에 li:hover 쪽에서 width 가 바뀌기에 width로 설정*/
+    transition-duration: 0.3s;
+    /* transition은 duration을 무조건 사용해야 애니메이션 동작이 된다! */
+}
+
+#gnb > li:hover::before{
+    width: 100%;
+}
+
+#gnb > li > a{
+    line-height: 60px;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+    padding-right: 24px;
+}
+#gnb > li > a::after{
+    display: inline-block;
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: url(../img/Polygon\ 1.png) no-repeat 50% 50%;
+    /* color image repeat position-x, y 순으로 축약 가능 */
+    position: absolute;
+    right: 0; top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    transition-property: transform;
+    }
+
+#gnb > li > a:hover::after{
+    transform: translateY(-50%) rotate(180deg);
+}
+
+#gnb .depth2{
+/* display: none;*/
+background-color: #fff; 
+position: absolute; left: 50%; top: 76px;
+transform: translateX(-50%);
+border-radius: 0 0 20px 20px;
+width: 184px;
+box-shadow: inset 0 8px 16px 0 rgba(0, 0, 0, 0.200);
+padding: 32px 40px 20px 40px;
+white-space: nowrap;
+/* 글자의 줄바꿈 방지 */
+}
+#gnb .depth2 li{text-align: left;}
+#gnb .depth2 li + li{margin-top: 4px;}
+#gnb .depth2 li a{
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.6px;
+    line-height: 1.5;
+}
+#gnb .depth2 li a:hover{
+    color: rgb(5, 5, 250);
+}
+
+
+
+.util-menu{
+    position: absolute;
+    right: 0; top: 48px;
+    font-size: 0;
+}
+
+.util-menu a{
+    background-image: url(../img/ico\ user\ .png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: inline-block; vertical-align: middle;
+    text-indent: -9999px; /*text 앞쪽 공간에 -9999px를 부여, 사용 이유: a태그의 택스트가 부여되어야 하기에 보존이 필요.*/
+    width: 24px; height: 24px;
+    margin-right: 16px;
+}
+
+.util-menu button{
+    background: url(../img/img\ search.png) no-repeat center center;
+    /*background 축약 */
+    text-indent: -9999px;
+    width: 24px; height: 24px;
+    border: 0; 
+    /*button은 border 선이 존재하기에 지워준다.*/
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+/* 섹션 공통클래스 */
+.sec h2{
+    font-size: 60px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.sec .container{
+    padding: 120px 0;
+}
+
+/* =================================================
+    섹션레이아웃
+===================================================*/
+
+
+/* sec-1{} : 워터킹덤 즐기기 영역 */
+.sec-1{
+    background-image: url(../img/bg_patter_01.png);
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 0;
+
+}
+
+.sec-1 h2{
+    font-size: 60px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sec-1 .tab-menu{
+    text-align: center;
+    font-size: 0;
+    padding-top: 20px;
+}
+
+.sec-1 .tab-menu a.on{
+    border-color: #4A5FE2;
+    color: #4A5FE2;
+
+}
+
+.sec-1 .tab-menu a:last-child{
+    margin-right: 0;
+}
+
+.sec-1 .tab-menu a{
+    border: 2px solid #BDBDBD;
+    background-color: whitesmoke;
+    display: inline-block;
+    width: 100px; height: 44px;
+    line-height: 44px;
+    border-radius: 16px 16px 0 0;
+    border-bottom: 0;
+    box-sizing: border-box;
+    /* 요소의 너비와 높이에 패딩과 테두리 두께를 포함하여 계산하게 합니다. 즉, 설정한 너비와 높이가 내부 콘텐츠의 크기와 함께 영향을 받지 않도록 합니다.*/
+    font-weight: 600;
+    font-size: 16px;
+    margin-right: 8px;
+}
+
+.sec-1 .container{
+    padding-top: 120px;
+    position: relative;
+
+}
+
+.sec-1 .tab-con{
+    width: max-content;
+    margin: 30px auto 0 auto;
+}
+
+.sec-1 .tab-con::after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.sec-1 .tab-con figure{
+    float: left;
+}
+.sec-1 .tab-con figure img{}
+
+.sec-1 .tab-con .cont-wrap{
+    float: left;
+    margin-left: 60px;
+}
+.cont-wrap .txt-box{}
+.cont-wrap .txt-box h3{font-size: 28px; font-weight: 600;}
+.cont-wrap .txt-box p{font-size: 16px; font-weight: 400; line-height: 150%;}
+.cont-wrap .btn-box{font-size: 0;}
+.cont-wrap .btn-box a{
+    display: inline-block; 
+    border: 1px solid #2e45d7;
+    width: 90px; height: 34px; border-radius: 8px;
+    background-color: #5141FE; color: #ffffff;  
+    text-align: center;  line-height: 34px;
+    font-size: 16px;
+}
+.cont-wrap .btn-box a + a{
+    margin-left: 8px;
+}
+
+.sec-2 h2{
+    margin-bottom: 60px;
+}
+
+.sec-2 .cont-wrap{}
+
+.sec-2 .cont-wrap::after{display: block; content: ""; clear: both;}
+
+.sec-2 .cont-wrap .news-box{ width: 604px; float: left;}
+
+.sec-2 .cont-wrap .news-box li{
+    font-weight: 500;
+    position: relative;
+    border-bottom: 1px solid #CDCDCD;
+    }
+    
+.sec-2 .cont-wrap .news-box li a{
+        display: inline-block; width: 460px; line-height: 82px; 
+        position: relative;
+        padding-left: 15px;
+        
+        }
+
+.sec-2 .cont-wrap .news-box li a:hover{
+    color: #4A5FE2;
+    text-decoration: underline;
+}
+        
+.sec-2 .cont-wrap .news-box li a::before{
+    display: inline-block; content: "";
+    width: 6px; height: 6px;
+    margin-right: 8px;
+    border-radius: 50%;
+    position: absolute; left: 0; top: 50%;
+    transform: translateY(-50%);
+    background-color: #4A5FE2;
+}
+
+
+.sec-2 .cont-wrap .news-box li span.date{
+    display: inline-block; 
+    width: 110px; line-height: 82px; text-align: right; 
+    position: absolute; 
+    float: right; right: 0; top: 0;
+}
+
+.sec-2 .cont-wrap .banner-box{width: 604px; float: right;}
+
+/* sec-3 : 운영안내 영역---------------------------- */
+
+.sec-3{
+    background-image: url(../img/bg_02.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* contain은? */
+    background-position: center center;
+    color: #fff;
+
+}
+
+.sec-3 h2{
+    margin-bottom: 60px;
+}
+
+.sec-3 .container::after{
+    display: block;
+    content: "";
+    clear: both;
+}
+.sec-3 .col{
+    width: 604px; height: 308px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    position: relative;
+    padding-top: 60px; padding-bottom: 60px;
+    box-sizing: border-box;
+    color: #fff;
+    /* 이걸 사용하면 박스의 사이즈가 경계선까지의 두깨까지를 박스의 사이즈로 인식을 해주어 width, height 값을 자동으로 바꾸게 해준다. */
+}
+.sec-3 .col h3{
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+
+}
+
+.sec-3 .col dl{
+
+    position: absolute; top: 168px; left: 50%;
+    transform: translateX(-50%);   
+}
+.sec-3 .col dt{
+    position: absolute; left: 0; top: 50%;
+    transform: translateY(-50%);
+
+    }
+.sec-3 .col dd{margin-left: 179px; white-space: nowrap;}
+
+.sec-3 .col dd span{display: inline-block;
+                    padding: 10px 20px;
+                    background-color: #705509;
+                    border-radius: 25px;
+                    color: #fff;}
+
+.sec-3 .col dd:nth-of-type(2){border: 1px solid yellow; margin-top: 15px;}
+.sec-3 .col dd:nth-of-type(2) span{background-color: #ECEEAA;}
+
+.sec-3 .col dd em{display: inline-block;}
+
+.sec-3 .col-left{float: left;}
+.sec-3 .col-right{float: right;}
+.sec-3 .col-right dl{top: 175px;}
+
+
+/* ===================================
+    푸터레이아웃    
+    어쩌고 저쩌고 했으니 참고하시구 문의가있으면
+====================================*/
+
+.main-footer{padding-bottom: 154px;
+}
+
+.main-footer .container{
+}
+
+/* 푸터 상단영역 */
+.main-footer .foot-top{border-bottom: 1px solid #424C93;}
+.main-footer .foot-top .foot-link{font-size: 0;}
+.main-footer .foot-top .foot-link a{
+    display: inline-block; 
+    font-size: 16px; line-height: 64px;
+}
+
+.main-footer .foot-top .foot-link a + a{margin-left: 40px;}
+
+/* 푸터 하단영역 */
+.main-footer .foot-btm{position: relative;}
+.main-footer .foot-btm .foot-info{padding-top: 40px;}
+.main-footer .foot-btm .foot-info address{color: #7C85CA;}
+.main-footer .foot-btm .foot-info p.copy{color: #424C93; font-size: 14px; margin-top: 44px;}
+.main-footer .foot-btm .foot-logo{position: absolute; right: 0; top: 50px;}
