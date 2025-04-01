@@ -8,3 +8,6 @@
 
 # 워터킹덤 웹 사이트 링크
 * http://zaero1699.dothome.co.kr/waterkingdom/
+
+# 안내사항
+* 작업과정.pdf 파일이 안보일 때 새로고침하면 다시 보입니다.
